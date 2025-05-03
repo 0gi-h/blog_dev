@@ -1,4 +1,4 @@
-src/main/resources/application.yml
+application-secret.yml
 /client_secret_113406597710-me4lqi3hkqc8c5813g6ec5r6d8vmhl89.apps.googleusercontent.com.json
 .gradle
 build/

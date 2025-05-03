@@ -12,6 +12,11 @@ repositories {
     mavenCentral()
 }
 
+//일반 jar파일만 생성하도록 변경(플레인 아카이브 생성 x)
+jar {
+    enabled = false
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

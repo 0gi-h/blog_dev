@@ -48,6 +48,9 @@ dependencies {
 
     //mysql
     implementation 'com.mysql:mysql-connector-j'
+
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    testImplementation 'net.datafaker:datafaker:2.0.2'
 }
 
 test {

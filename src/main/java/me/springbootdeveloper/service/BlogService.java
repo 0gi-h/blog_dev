@@ -1,6 +1,7 @@
 package me.springbootdeveloper.service;
 
 import lombok.RequiredArgsConstructor;
+import me.springbootdeveloper.config.error.exception.ArticleNotFoundException;
 import me.springbootdeveloper.domain.Article;
 import me.springbootdeveloper.dto.AddArticleRequest;
 import me.springbootdeveloper.dto.UpdateArticleRequest;
@@ -29,7 +30,7 @@ public class BlogService {
 
     //블로그 글 조회 메서드
     public Article findById(Long id) {
-        return blogRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+        return blogRepository.findById(id).orElseThrow(ArticleNotFoundException::new);
     }
 
     //블로그 글 삭제 메서드

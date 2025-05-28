@@ -3,7 +3,9 @@ package me.springbootdeveloper.config.error;
 import lombok.extern.slf4j.Slf4j;
 import me.springbootdeveloper.config.error.exception.BusinessBaseException;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -20,6 +22,12 @@ public class GlobalExceptionHandler {
     protected ResponseEntity<ErrorResponse> handle(BusinessBaseException e) {
         log.error("BusinessBaseException", e);
         return createErrorResponseEntity(e.getErrorCode());
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    protected ResponseEntity<ErrorResponse> handle(MethodArgumentNotValidException e) {
+        log.error("MethodArgumentNotValidException", e);
+        return createErrorResponseEntity(ErrorCode.INVALID_INPUT_VALUE);
     }
 
     @ExceptionHandler(Exception.class)
